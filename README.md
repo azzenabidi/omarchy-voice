@@ -1,4 +1,4 @@
-# Omarchy Voice (azzen.voice)
+# Omarchy Voice
 
 Control Omarchy by voice and hear it talk back.
 
@@ -11,10 +11,8 @@ Control Omarchy by voice and hear it talk back.
 
 ## Triggering
 
-- **Push-to-talk hotkey:** hold **Super+Grave** (Super+`) to talk, release to stop
-  (bound in `~/.config/hypr/bindings.lua`). Super+Ctrl+Space is already taken by
-  the background switcher.
 - **Bar mic button:** click the mic glyph in the Omarchy bar.
+- **Push-to-talk hotkey:** optional, bind `omarchy-voice start/stop` (see below).
 - **CLI:** `omarchy-voice toggle|start|stop|status|say "<text>"` (symlinked into
   `~/.local/bin` by `install.sh`).
 
@@ -32,7 +30,7 @@ The full, human-editable rule catalog is written to
 ## Layout
 
 ```
-~/.config/omarchy/plugins/azzen.voice/
+~/.config/omarchy/plugins/<id>/
 ├── manifest.json          # kinds: service + bar-widget
 ├── VoiceService.qml       # headless backend manager + "voice" IPC target
 ├── VoiceBarWidget.qml     # bar mic button
@@ -58,7 +56,7 @@ This places the bar mic button and loads the backend service. It installs only
 the plugin itself — next, pull the runtime dependencies and models:
 
 ```bash
-bash ~/.config/omarchy/plugins/azzen.voice/install.sh
+bash ~/.config/omarchy/plugins/<id>/install.sh
 ```
 
 `install.sh` installs `voxtype-bin` + `piper-tts`, downloads the Piper
