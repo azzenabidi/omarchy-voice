@@ -73,6 +73,33 @@ o.bind("SUPER + CTRL + F10", "Voice assistant (start)", "omarchy-voice start")
 o.bind("SUPER + CTRL + F10", "Voice assistant (stop)", "omarchy-voice stop", { release = true })
 ```
 
+## Uninstalling
+
+Disable the plugin (stops the backend service and hides the bar mic button):
+
+```bash
+omarchy plugin disable <id>
+```
+
+Or fully remove it (disable + delete the plugin folder):
+
+```bash
+omarchy plugin remove <id>
+```
+
+You can also delete the CLI symlink and, optionally, the runtime config
+and models that were set up by `install.sh`:
+
+```bash
+rm ~/.local/bin/omarchy-voice
+rm -rf ~/.config/omarchy/voice            # rules.json and voice config
+rm -rf ~/.cache/omarchy/voice             # transcripts/state
+rm -rf ~/.local/share/piper/voices        # downloaded Piper voice
+```
+
+If you bound a push-to-talk hotkey, remove the `o.bind` lines for
+`omarchy-voice start/stop` from `~/.config/hypr/bindings.lua`.
+
 ## Notes
 
 - Requires the Voxtype daemon to be running (`systemctl --user status voxtype`).
