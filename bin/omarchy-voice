@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# omarchy:summary=Control the Omarchy voice assistant
+# omarchy:args=[toggle|start|stop|status|say <text>]
+# omarchy:examples=omarchy-voice toggle | omarchy-voice say "Hello"
+
+CMD="${1:-toggle}"
+
+case "$CMD" in
+  toggle)
+    omarchy-shell -q voice toggle
+    ;;
+  start)
+    omarchy-shell voice start
+    ;;
+  stop)
+    omarchy-shell voice stop
+    ;;
+  status)
+    omarchy-shell voice status
+    ;;
+  say)
+    shift
+    omarchy-shell voice say "$*"
+    ;;
+  *)
+    echo "Usage: omarchy-voice [toggle|start|stop|status|say <text>]" >&2
+    exit 1
+    ;;
+esac

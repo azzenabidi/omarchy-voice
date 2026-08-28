@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "azzen.voice",
+  "name": "Voice",
+  "version": "1.0.0",
+  "author": "azzen",
+  "license": "MIT",
+  "description": "Voice control for Omarchy with spoken replies. Push-to-talk (Super+Ctrl+Space) or bar mic button; speech is transcribed by Voxtype and matched against a local rule set to run Omarchy/system/app/plugin actions, and Omarchy talks back via Piper TTS.",
+  "kinds": ["service", "bar-widget"],
+  "keepLoaded": true,
+  "entryPoints": {
+    "service": "VoiceService.qml",
+    "barWidget": "VoiceBarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Voice",
+    "description": "Bar mic button to control Omarchy by voice and hear spoken replies.",
+    "category": "AI",
+    "aliases": ["voice", "assistant"],
+    "allowMultiple": false
+  }
+}
